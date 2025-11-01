@@ -1,7 +1,8 @@
 import express, { json } from "express";
 import Soldier from "./models/soldiers.model.js";
 import cors from "cors";
-
+//CORS (Cross-Origin Resource Sharing) is a mechanism that allows a web application
+//  running on one origin to access resources from a different origin
 const app = express();
 
 app.use(cors());
