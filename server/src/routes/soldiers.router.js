@@ -34,5 +34,10 @@ router.get("/soldiers", async (req, res) => {
     res.status(500).json({ error: "Failed to fetch soldiers" });
   }
 });
+router.get("/", async (req, res) => {
+  const soldiers = await Soldier.find().populate("location");
+  res.json(soldiers);
+});
+
 
 export default router;
