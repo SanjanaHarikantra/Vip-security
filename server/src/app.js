@@ -15,10 +15,10 @@ app.use(express.json());
 
 import soldierRouter from './routes/soldiers.router.js';
 
-app.use('/api/v1/vip-security', soldierRouter);
-app.get("/", (req, res) => {
-  res.send("🚀 VIP Security Management System backend is live on Render!");
-});
+// app.use('/api/v1/vip-security', soldierRouter);
+// app.get("/", (req, res) => {
+//   res.send("🚀 VIP Security Management System backend is live on Render!");
+// });
 
 
 export { app };
