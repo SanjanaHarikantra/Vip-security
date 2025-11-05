@@ -1,20 +1,14 @@
 {
-  "name": "server",
+  "name": "vip-security-server",
   "version": "1.0.0",
-  "description": "VIP Security Management Project",
-  "main": "index.js",
   "type": "module",
+  "main": "src/index.js",
   "scripts": {
-    "dev": "nodemon src/index.js"
+    "start": "node src/index.js",
+    "dev": "node src/index.js"
   },
-  "author": "sharanu mesta",
-  "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.21.1",
-    "mongoose": "^8.8.3"
-  },
-  "devDependencies": {
-    "nodemon": "^3.1.7"
+    "express": "^4.19.2"
   }
 }
