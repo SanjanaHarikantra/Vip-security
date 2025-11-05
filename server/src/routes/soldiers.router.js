@@ -5,8 +5,13 @@ import showSoldiersOnMap from "../controllers/showSoldiersOnMap.controller.js";
 
 const router = Router();
 
-router.route('/').get(showSoldiersOnMap);
-router.route('/locations').get(getLocation);
-router.route('/assign-soldiers').post(assignSoldiers);
+// Assigned soldiers for map
+router.get('/soldiers', showSoldiersOnMap);
+
+// All locations
+router.get('/locations', getLocation);
+
+// Assign soldiers to a location
+router.post('/assign-soldiers', assignSoldiers);
 
 export default router;

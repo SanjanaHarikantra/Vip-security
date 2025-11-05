@@ -1,20 +1,17 @@
-import express, { json } from "express";
-import Soldier from "./models/soldiers.model.js";
+import express from "express";
 import cors from "cors";
+import soldierRouter from './routes/soldiers.router.js';
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 
-// app.get("/", async (req, res) => {
-//   const result = await Soldier.find({}, { __v: 0 });
-//   res.status(200).json(result);
-// });
+// Health endpoint
+app.get('/healthz', (req, res) => res.status(200).send('ok'));
 
-import soldierRouter from './routes/soldiers.router.js';
-
-app.use('/api/v1/vip-security', soldierRouter);
+// API routes
+app.use('/api', soldierRouter);
 
 export { app };
 

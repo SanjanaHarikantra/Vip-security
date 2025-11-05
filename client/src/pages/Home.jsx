@@ -8,10 +8,10 @@ const Home = () => {
 
   useEffect(() => {
     axios
-      .get(`${apiURL}/locations`) // Fetch data from backend
-      .then((res) => setSoldiers(res.data.soldiers || []))
-      .catch((err) => console.error("Error while fetching data...", err));
-  }, []);
+      .get(`${apiURL}/soldiers`) // Fetch assigned soldiers
+      .then((res) => setSoldiers(Array.isArray(res.data) ? res.data : (res.data.soldiers || [])))
+      .catch((err) => console.error("Error while fetching soldiers...", err));
+  }, [apiURL]);
 
   return (
     <div className="container mt-5 col-8">
