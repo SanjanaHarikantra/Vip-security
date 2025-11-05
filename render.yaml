@@ -23,7 +23,7 @@ services:
     region: oregon
     plan: free
     buildCommand: cd client && npm install && npm run build
-    staticPublishPath: ./client/dist
+    staticPublishPath: client/dist
     envVars:
       - key: VITE_BASE_URL
         value: https://vip-security-api.onrender.com/api
