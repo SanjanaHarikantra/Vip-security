@@ -16,10 +16,11 @@ const AssignForces = () => {
   useEffect(() => {
     const fetchLocations = async () => {
       try {
-        const response = await axios.get(`${apiUrl}/locations`);
-        const locations = response.data.map((location) => ({
-          label: location.name,
-          id: location._id,
+        const response = await axios.get(`${apiUrl}/soldiers`);
+        const soldiers = response.data.soldiers || [];
+        const locations = soldiers.map((soldier) => ({
+          label: soldier.name,
+          id: soldier.name,
         }));
         setLocationOptions(locations);
       } catch (error) {
@@ -40,9 +41,9 @@ const AssignForces = () => {
     }
 
     try {
-      const response = await axios.post(`${apiUrl}/assign-soldiers`, {
-        locationId,
-        numSoldiers
+      const response = await axios.post(`${apiUrl}/soldiers/assign`, {
+        name: locationId,
+        location: { lat: numSoldiers, lng: numSoldiers } // This needs proper location data
       });
 
       // Check if soldiers are returned in the response and is an array

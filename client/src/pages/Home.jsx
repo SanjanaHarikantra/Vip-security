@@ -8,8 +8,8 @@ const Home = () => {
 
   useEffect(() => {
     axios
-      .get(`${apiURL}/`) // Fetch data from backend
-      .then((res) => setSoldiers(res.data))
+      .get(`${apiURL}/locations`) // Fetch data from backend
+      .then((res) => setSoldiers(res.data.soldiers || []))
       .catch((err) => console.error("Error while fetching data...", err));
   }, []);
 
