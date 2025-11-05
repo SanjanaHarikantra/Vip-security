@@ -2,11 +2,10 @@ services:
   # Backend API
   - type: web
     name: vip-security-api
-    runtime: node
     env: node
     region: oregon
     plan: free
-    buildCommand: cd server && npm install
+    buildCommand: cd server && npm ci
     startCommand: cd server && npm start
     envVars:
       - key: NODE_ENV
@@ -15,15 +14,13 @@ services:
         value: 10000
     healthCheckPath: /api/soldiers
 
-  # Frontend
-  - type: web
+  # Frontend (Static Site)
+  - type: static_site
     name: vip-security-client
-    runtime: static
-    env: static
     region: oregon
     plan: free
-    buildCommand: cd client && npm install && npm run build
-    staticPublishPath: client/dist
+    buildCommand: cd client && npm ci && npm run build
+    publishPath: client/dist
     envVars:
       - key: VITE_BASE_URL
         value: https://vip-security-api.onrender.com/api
